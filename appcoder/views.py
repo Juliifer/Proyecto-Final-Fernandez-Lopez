@@ -1,17 +1,17 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 def inicio(request):
-    return HttpResponse('vista inicio')
+    return render (request, 'AppCoder/inicio.html')
 
 def Proyectos_Ley(request):
-    return HttpResponse('vista proyectos de ley')
+    return render(request, 'AppCoder/proyectos_ley.html')
 
 def Integrantes_proyect(request):
-    return HttpResponse ('vista integrantes del proyecto')
+    return render(request, 'AppCoder/integrantes.html')
 
 def Camara(request):
-    return HttpResponse ('vista camara o secretaria')
+    return render(request, 'AppCoder/camara.html')
 
 def Fecha_Inicio(request):
-    return HttpResponse ('vista fecha inicio proyecto')
+    return render (request, 'AppCoder/fecha_inicio.html')
 
