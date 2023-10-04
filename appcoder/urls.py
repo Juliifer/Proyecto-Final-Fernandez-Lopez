@@ -1,10 +1,9 @@
 from django.urls import path
-from .views import inicio, Proyectos_Ley, Integrantes_proyect, Camara, Fecha_Inicio
+from appcoder import views
 
 urlpatterns = [
-    path('base/',inicio),
-    path('proyectos_ley', Proyectos_Ley),
-    path('integrantes_proyecto', Integrantes_proyect),
-    path('camara', Camara),
-    path('fecha_inicio', Fecha_Inicio),
-]
+    path('', views.inicio),
+    path('proyectos_ley', views.Proyectos_Ley, name= 'Proyectos de Ley'),
+    path('integrantes_proyecto', views.Integrantes_proyect,name= 'Integrantes del proyecto' ),
+    path('camara', views.Camara, name= 'Camara'),
+    path('fecha_inicio', views.Fecha_Inicio, name= 'Fecha de Inicio'),]
