@@ -5,10 +5,10 @@ def inicio(request):
     return render(request, 'AppCoder/index.html')
 
 def Proyectos_Ley(request):
-    return render(request, 'AppCoder/proyectos_ley.html')
+    return render(request, 'AppCoder/Proyectos.html')
 
 def Integrantes_proyect(request):
-    return render(request, 'AppCoder/integrantes.html')
+    return render(request, 'AppCoder/Integrantes.html')
 
 def Camara(request):
     return render(request, 'AppCoder/camara.html')
