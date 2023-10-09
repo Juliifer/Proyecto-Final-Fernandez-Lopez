@@ -5,7 +5,7 @@ def inicio(request):
     return render(request, 'AppCoder/inicio.html')
 
 def Proyectos_Ley(request):
-    return render(request, 'AppCoder/Proyectos._Ley.html')
+    return render(request, 'AppCoder/Proyectos_Ley.html')
 
 def Integrantes_proyect(request):
     return render(request, 'AppCoder/Integrantes_proyect.html')
