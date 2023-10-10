@@ -20,5 +20,5 @@ class Fecha_Inicio(models.Model):
     fecha= models.DateField(max_length=20)
 
 class Proyecto(models.Model):
-    nombre=models.CharField
-    
+    nombre=models.CharField()
+    rubro=models.CharField()
