@@ -18,3 +18,7 @@ class Camara(models.Model):
 
 class Fecha_Inicio(models.Model):
     fecha= models.DateField(max_length=20)
+
+class Proyecto(models.Model):
+    nombre=models.CharField
+    
