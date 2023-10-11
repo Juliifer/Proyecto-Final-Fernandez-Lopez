@@ -30,7 +30,7 @@ def cursoFormulario(request):
 def integrantesFormulario(request):
     if request.method == 'POST':
         
-        integrantes = Integrantes_proyect (nombre=request.POST['nombre'], proyecto=request.POST['proyecto'])
+        integrantes = Integrantes_proyect (nombre=request.POST['nombre'], apellido=request.POST['apellido'], email=request.POST['email'])
 
         integrantes.save()
 
@@ -41,10 +41,20 @@ def integrantesFormulario(request):
 def camaraFormulario(request):
     if request.method == 'POST':
         
-        camara = Camara (nombre=request.POST['nombre'], integrante=request.POST['integrantes'])
+        camara = Camara (nombre=request.POST['nombre'], integrantes=request.POST['integrantes'], profesion=request.POST['profesion'])
 
         camara.save()
 
         return render (request, 'AppCoder/inicio.html')
     
     return render(request, 'AppCoder/camaraFormulario.html')
+
+def busqueda_proyecto_ley_form(request):
+    return render(request, 'AppCoder/busqueda_proyecto_ley.html')
+
+
+def busqueda_proyecto_ley(request):
+    if request.method == "GET":
+        nombre = request.GET.get("nombre", "")
+        proyectos_ley = Proyectos_Ley.objects.filter(nombre__icontains=nombre)
+        return render(request, 'AppCoder/resultados_busqueda.html', {'proyectos_ley': proyectos_ley})

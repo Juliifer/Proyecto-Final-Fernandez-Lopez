@@ -9,5 +9,10 @@ urlpatterns = [
     path('fecha_inicio/', views.Fecha_Inicio, name= 'Fecha_Inicio'),
     path('cursoFormulario', views.cursoFormulario, name='CursoFormulario'),
     path('integrantesFormulario', views.integrantesFormulario, name='IntegrantesFormulario'),
-    path('camaraFormulario', views.camaraFormulario, name='CamaraFormulario')
+    path('camaraFormulario', views.camaraFormulario, name='CamaraFormulario'),
+    path('busqueda_proyecto_form/', views.busqueda_proyecto_ley_form,
+         name='busqueda_proyecto_ley'),
+    path('busqueda_proyecto_ley/', views.busqueda_proyecto_ley,
+         name='busqueda_proyecto_ley')
+
     ]

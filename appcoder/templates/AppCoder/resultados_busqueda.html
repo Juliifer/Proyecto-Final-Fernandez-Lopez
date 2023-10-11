@@ -1,0 +1,17 @@
+{% extends 'AppCoder/base.html' %}
+{% load static %}
+
+{% block main %}
+<h2>Resultados:</h2>
+
+    {% if proyectos_ley %}
+        <ul>
+            {% for proyecto in proyectos_ley %}
+                <li>{{ proyecto.nombre }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron proyectos de ley con ese nombre.</p>
+    {% endif %}
+
+    {% endblock main %}

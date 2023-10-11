@@ -1,0 +1,16 @@
+{% extends 'AppCoder/base.html' %}
+{% load static %}
+
+{% block title %} Formulario {% endblock title %}
+
+{% block main4 %}
+    <form action="{% url 'busqueda_proyecto_ley'%}" method="GET">
+        {% csrf_token %}
+
+        <p>Nombre a buscar: <input type= "text" name="nombre"></p>
+
+        <input type="submit" value="Enviar">
+
+    </form>
+
+{% endblock main %}
