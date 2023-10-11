@@ -22,23 +22,10 @@ def cursoFormulario(request):
 
 def cursoFormulario(request):
     if request.method == 'POST':
+        proyecto = Proyectos_Ley (request.POST['proyecto'], request.POST['tematica'])
 
-        miFormulario = CursoFormulario(request.POST)
+        proyecto.save()
 
-        print(miFormulario)
-
-        if miFormulario.is_valid():
-
-                informacion = miFormulario.cleaned_data
-
-                proyecto = Proyectos_Ley (nombre=informacion['nombre'], rubro=informacion['rubro'])
-
-                proyecto.save()
-
-                return render(request, 'AppCoder/inicio.html')
-        
-    else:
-
-        miFormulario = CursoFormulario() 
-
-    return render(request, 'AppCoder/cursoFormulario.html', {'miFormulario': miFormulario})
+        return render (request, 'AppCoder/inicio.html')
+    
+    return render(request, 'AppCoder/cursoFormulario.html')
