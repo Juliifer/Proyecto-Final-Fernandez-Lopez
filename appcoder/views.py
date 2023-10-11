@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from appcoder.forms import CursoFormulario
 from appcoder.models import Proyectos_Ley
 
 def inicio(request):
@@ -22,6 +21,7 @@ def cursoFormulario(request):
 
 def cursoFormulario(request):
     if request.method == 'POST':
+        
         proyecto = Proyectos_Ley (request.POST['proyecto'], request.POST['tematica'])
 
         proyecto.save()
