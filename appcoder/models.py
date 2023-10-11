@@ -13,7 +13,7 @@ class Integrantes_proyect(models.Model):
 
 class Camara(models.Model):
     nombre=models.CharField(max_length=40)
-    cantidad_miembros=models.CharField(max_length=20)
+    integrantes=models.IntegerField(max_length=20)
     profesion=models.CharField(max_length=30)
 
 class Fecha_Inicio(models.Model):

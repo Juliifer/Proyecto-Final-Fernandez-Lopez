@@ -1,0 +1,18 @@
+{% extends 'AppCoder/base.html' %}
+{% load static %}
+
+{% block title %} Formulario {% endblock title %}
+
+{% block main3 %}
+    <form action="{% url 'CamaraFormulario'%}" method="POST">
+        {% csrf_token %}
+
+        <p>Nombre: <input type= "text" name="nombre"></p>
+
+        <p>integrantes: <input type="numbre" name="integrantes"></p>
+
+        <input type="submit" value="Enviar">
+
+    </form>
+
+{% endblock %}
