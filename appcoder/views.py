@@ -22,7 +22,7 @@ def cursoFormulario(request):
 def cursoFormulario(request):
     if request.method == 'POST':
         
-        proyecto = Proyectos_Ley (request.POST['proyecto'], request.POST['tematica'])
+        proyecto = Proyectos_Ley (nombre=request.POST['nombre'], tematica=request.POST['tematica'])
 
         proyecto.save()
 

@@ -4,7 +4,7 @@
 {% block title %} Formulario {% endblock title %}
 
 {% block main %}
-    <form action="/cursoFormulario/" method="POST">
+    <form action="{% url'CursoFormulario'%}" method="POST">
         {% csrf_token %}
 
         <p>Nombre: <input type= "text" name="nombre"></p>
