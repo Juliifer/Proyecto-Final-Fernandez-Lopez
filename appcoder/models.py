@@ -4,7 +4,7 @@ from django.db import models
 class Proyectos_Ley(models.Model):
 
     nombre= models.CharField(max_length=40)
-    tematica=models.IntegerField()
+    tematica=models.CharField(max_length=20)
 
 class Integrantes_proyect(models.Model):
     nombre= models.CharField(max_length=40)

@@ -4,7 +4,7 @@ from appcoder.models import Proyectos_Ley
 def inicio(request):
     return render(request, 'AppCoder/inicio.html')
 
-def Proyectos_Ley(request):
+def proyectos_Ley(request):
     return render(request, 'AppCoder/Proyectos_Ley.html')
 
 def Integrantes_proyect(request):
@@ -15,9 +15,6 @@ def Camara(request):
 
 def Fecha_Inicio(request):
     return render(request, 'AppCoder/fecha_inicio.html')
-
-def cursoFormulario(request):
-    return render(request, 'AppCoder/cursoFormulario.html')
 
 def cursoFormulario(request):
     if request.method == 'POST':
