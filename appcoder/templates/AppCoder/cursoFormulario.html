@@ -1,29 +1,21 @@
 {% extends 'AppCoder/base.html' %}
+
 {% load static %}
 
-{% block section1 %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario - Agregar Proyecto</title>
-</head>
-<body>
+{% block title %} Formulario {% endblock title %}
 
-    <form action="/cursoFormulario/" method="POST">{% csrf_token %}
+{% block main %}
 
-        <p>Nombre: <input type="text" name="nombre"></p>
+    <form action="" method="POST">
+        {% csrf_token %}
 
-        <p>Rubro: <input type="text" name="rubro"></p>
+        <table>
+            {{ miFormulario.as_table }}
+        </table>
 
         <input type="submit" value="Enviar">
 
     </form>
 
 
-</body>
-</html>
-
-{% endblock %}
+{% endblock <main></main> %}

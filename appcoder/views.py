@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from appcoder.models import Proyecto
+from appcoder.forms import CursoFormulario
+from appcoder.models import Proyectos_Ley
 
 def inicio(request):
     return render(request, 'AppCoder/inicio.html')
@@ -22,9 +23,22 @@ def cursoFormulario(request):
 def cursoFormulario(request):
     if request.method == 'POST':
 
-        curso = Proyecto (request.POST['nombre'], request.POST['rubro'])
+        miFormulario = CursoFormulario(request.POST)
 
-        curso.save()
+        print(miFormulario)
 
-        return render(request, 'AppCoder/inicio.html')
-    return render (request, 'AppCoder/cursoFormulario.html')
+        if miFormulario.is_valid():
+
+                informacion = miFormulario.cleaned_data
+
+                proyecto = Proyectos_Ley (nombre=informacion['nombre'], rubro=informacion['rubro'])
+
+                proyecto.save()
+
+                return render(request, 'AppCoder/inicio.html')
+        
+    else:
+
+        miFormulario = CursoFormulario() 
+
+    return render(request, 'AppCoder/cursoFormulario.html', {'miFormulario': miFormulario})
