@@ -12,8 +12,7 @@ urlpatterns = [
     path('camaraFormulario', views.camaraFormulario, name='CamaraFormulario'),
     path('busqueda_proyecto_form/', views.busqueda_proyecto_ley_form,
          name='busqueda_proyecto_ley'),
-    path('busqueda_proyecto_ley/', views.busqueda_proyecto_ley,
-         name='busqueda_proyecto_ley'),
-     path('leerProyectos', views.leerproyectos, name='LeerProyectos')
+    path('busqueda_proyecto_ley/', views.busqueda_proyecto_ley,name='busqueda_proyecto_ley'),
+    path('leerProyectos', views.leerProyectos, name='LeerProyectos')
 
     ]
