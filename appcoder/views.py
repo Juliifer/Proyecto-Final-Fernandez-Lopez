@@ -63,3 +63,12 @@ def leerProyectos(request):
     proyectos = Proyectos_Ley.objects.all() #trae todos los proyectos
     return render(request, "AppCoder/leerProyectos.html", {'proyectos': proyectos})
 
+def delete_proyecto(request, proyecto_id):
+    print('\n\n\n\n')
+    print(type(proyecto_id))
+
+    proyectos = Proyectos_Ley.objects.get(id=int(proyecto_id))
+    proyectos.delete()
+
+    return render(request, "AppCoder/leerProyectos.html", {"proyecto": proyectos})
+

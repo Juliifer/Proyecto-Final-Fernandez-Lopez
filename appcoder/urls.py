@@ -13,6 +13,7 @@ urlpatterns = [
     path('busqueda_proyecto_form/', views.busqueda_proyecto_ley_form,
          name='busqueda_proyecto_ley'),
     path('busqueda_proyecto_ley/', views.busqueda_proyecto_ley,name='busqueda_proyecto_ley'),
-    path('leerProyectos', views.leerProyectos, name='LeerProyectos')
+    path('leerProyectos', views.leerProyectos, name='LeerProyectos'),
+    path('delete_proyecto/<int: proyecto_id>/', views.delete_proyecto, name='DeleteProyecto')
 
     ]
