@@ -58,3 +58,11 @@ def busqueda_proyecto_ley(request):
         nombre = request.GET.get("nombre", "")
         proyectos_ley = Proyectos_Ley.objects.filter(nombre__icontains=nombre)
         return render(request, 'AppCoder/resultados_busqueda.html', {'proyectos_ley': proyectos_ley})
+
+def leerproyectos(request):
+    proyectos = Proyectos_Ley.objects.all() #trae todos los proyectos
+
+    contexto = {'proyectos':proyectos}
+
+    return render(request, "AppCodder/leerProyectos.html", contexto)
+

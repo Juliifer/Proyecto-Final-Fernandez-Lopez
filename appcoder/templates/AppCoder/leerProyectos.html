@@ -1,0 +1,18 @@
+{% extends 'AppCoder/base.html' %}
+
+{% load static %}
+
+{% block title %} Proyectos {% endblock title %}
+
+{% block main %}
+
+<ul>
+
+{% for proyectos in proyectos %}
+
+    <li>{{ proyectos }}</li>
+
+{% endfor %}
+
+</ul>
+{% endblock main %}
