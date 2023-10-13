@@ -1,0 +1,15 @@
+{% extends 'AppCoder/base.html' %}
+{% load static %}
+
+{% block title %} Formulario {% endblock title %}
+
+{% block main %}
+    <form method="post">
+        {% csrf_token %}
+
+        Estas seguro que deseas borrar el curso '{{ objecto }}' ?
+        <input type="submit" value="Enviar">
+
+    </form>
+
+{% endblock %}

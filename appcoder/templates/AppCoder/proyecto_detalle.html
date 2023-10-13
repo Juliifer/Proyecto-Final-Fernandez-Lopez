@@ -1,0 +1,14 @@
+{% extends 'AppCoder/base.html' %}
+{% load static %}
+
+{% block title %} Formulario {% endblock title %}
+
+{% block main %}
+   <p>Nombre del Proyecto: <i>{{ proyecto.nombre }}</i></p>
+   <p>Tematica: <i>{{ proyecto.tematica }}</i></p>
+   <p>
+        <a href="{% url 'List' %}">Regresar</a>
+
+    </p>
+
+{% endblock %}

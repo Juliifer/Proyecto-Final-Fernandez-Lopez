@@ -92,3 +92,32 @@ def edit_proyecto(request, proyecto_id):
         miFormulario = cursoFormulario(initial={'proyecto':proyecto.nombre})
 
     return render(request, "AppCoder/create_api_form.html", {'miFormulario':miFormulario})
+
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
+from django.views.generic.edit import UpdateView
+from django.views.generic.edit import DeleteView
+
+class ProyectoList(ListView):
+    model = Proyectos_Ley
+    template_name= 'AppCoder/proyecto_list.html'
+
+class ProyectoDetalle(ListView):
+    model = Proyectos_Ley
+    template_name= 'AppCoder/proyecto_detalle.html'
+
+class ProyectoCreacion(CreateView):
+    model = Proyectos_Ley
+    success_url = "/AppCoder/proyecto/list"
+    fields = ['nombre', 'tematica']
+
+class CursoUpdate(UpdateView):
+    model = Proyectos_Ley
+    success_url = '/AppCoder/proyecto/list'
+    fields = ['nombre', 'tematica']
+
+class ProyectoDelete(DeleteView):
+    model = Proyectos_Ley
+    success_url = '/AppCoder/proyecto/list'

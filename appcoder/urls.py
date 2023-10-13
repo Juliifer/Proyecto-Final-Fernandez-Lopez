@@ -15,6 +15,11 @@ urlpatterns = [
     path('busqueda_proyecto_ley/', views.busqueda_proyecto_ley,name='busqueda_proyecto_ley'),
     path('leerProyectos', views.leerProyectos, name='LeerProyectos'),
     path('delete_proyecto/<int:proyecto_id>/', views.delete_proyecto, name='DeleteProyecto'),
-    path('edit_proyecto/<int:proyecto_id>/', views.edit_proyecto, name='EditProyecto')
+    path('edit_proyecto/<int:proyecto_id>/', views.edit_proyecto, name='EditProyecto'),
+    path('proyecto/list', views.ProyectoList.as_view(), name='List'),
+    path(r'^(?P<pk>\d+)$', views.ProyectoDetalle.as_view(), name='Detalle'),
+    path(r'^nuevo$', views.ProyectoCreacion.as_view(), name='New'),
+    path(r'^editar/(?P<pk>\d+)$', views.ProyectoUpdate.as_view(), name='Edit'),
+    path(r'^borrar/(?P<pk>\d+)$', views.ProyectoDelete.as_view(), name='Delete')
 
     ]
