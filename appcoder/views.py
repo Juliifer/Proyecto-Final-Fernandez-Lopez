@@ -89,6 +89,6 @@ def edit_proyecto(request, proyecto_id):
         
     else: 
         proyecto = Proyectos_Ley.objects.get(id=proyecto_id)
-        miFormulario = cursoFormulario(initial={'nombre':proyecto.nombre})
+        miFormulario = cursoFormulario(initial={'proyecto':proyecto.nombre})
 
     return render(request, "AppCoder/create_api_form.html", {'miFormulario':miFormulario})
