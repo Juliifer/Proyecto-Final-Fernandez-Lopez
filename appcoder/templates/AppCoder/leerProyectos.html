@@ -10,8 +10,10 @@
 
 {% for proyecto in proyectos %}
 
-    <li>Proyectos: {{ proyecto.nombre }} | Tematica: {{ proyecto.tematica }} <a href="{% url 'DeleteProyecto' proyecto.id %}"
-        >Eliminar</a></li>
+    <li>Proyectos: {{ proyecto.nombre }} | Tematica: {{ proyecto.tematica }}
+         <a href="{% url 'DeleteProyecto' proyecto.id %}">Eliminar</a>
+         <a href="{% url 'EditProyecto' proyecto.id %}">Editar</a>
+        </li>
 
 {% endfor %}
 </ul>

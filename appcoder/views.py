@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from appcoder.models import Proyectos_Ley, Integrantes_proyect, Camara
-
+from appcoder.forms import cursoFormulario, BuscaCursoForm
 def inicio(request):
     return render(request, 'AppCoder/inicio.html')
 
@@ -16,7 +16,7 @@ def camara(request):
 def Fecha_Inicio(request):
     return render(request, 'AppCoder/fecha_inicio.html')
 
-def cursoFormulario(request):
+def CursoFormulario(request):
     if request.method == 'POST':
         
         proyecto = Proyectos_Ley (nombre=request.POST['nombre'], tematica=request.POST['tematica'])
@@ -72,3 +72,23 @@ def delete_proyecto(request, proyecto_id):
 
     return render(request, "AppCoder/leerProyectos.html", {"proyecto": proyectos})
 
+def edit_proyecto(request, proyecto_id):
+
+    if request.method == 'POST':
+        miFormulario = cursoFormulario(request.POST)
+
+        if miFormulario.is_valid():
+            informacion = miFormulario.cleaned_data
+           
+            proyecto= Proyectos_Ley.objects.get(id=proyecto_id)
+            proyecto.nombre = informacion['proyecto']
+            proyecto.tematica = informacion['tematica']
+            proyecto.save()
+
+            return render(request, "AppCoder/inicio.html")
+        
+    else: 
+        proyecto = Proyectos_Ley.objects.get(id=proyecto_id)
+        miFormulario = cursoFormulario(initial={'nombre':proyecto.nombre})
+
+    return render(request, "AppCoder/create_api_form.html", {'miFormulario':miFormulario})
