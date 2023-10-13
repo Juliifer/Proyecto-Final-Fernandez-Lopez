@@ -1,0 +1,23 @@
+{% extends 'AppCoder/base.html' %}
+{% load static %}
+
+{% block title %} Formulario {% endblock title %}
+
+{% block main %}
+    <hi>Integrantes Proyectos de Ley - Congreso de la Nacion</hi>
+    <ul>
+        {% for integrantes object_list %}
+
+            <li>
+                <p>NOMBRE: {{ integrantes.nombre }}</p>
+                <p>
+                    <a href="{% url 'Detail' integrantes.id %}">Ver</a> |
+                    <a href="{% url 'Edit' integrantes.id %}">Editar</a> |
+                    <a href="{% url 'Delete' integrantes.id %}">Borrar</a>
+
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+ 
+{% endblock %}

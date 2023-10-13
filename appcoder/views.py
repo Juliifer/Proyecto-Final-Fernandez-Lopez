@@ -96,28 +96,58 @@ def edit_proyecto(request, proyecto_id):
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
-from django.urls import reverse_lazy
 from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
 
-class ProyectoList(ListView):
-    model = Proyectos_Ley
-    template_name= 'AppCoder/proyecto_list.html'
+class IntegrantesList(ListView):
+    model = Integrantes_proyect
+    template_name= 'AppCoder/integrantes_list.html'
 
-class ProyectoDetalle(ListView):
-    model = Proyectos_Ley
-    template_name= 'AppCoder/proyecto_detalle.html'
+class IntegrantesDetalle(DetailView):
+    model = Integrantes_proyect
+    template_name= 'AppCoder/integrantes_detalle.html'
 
-class ProyectoCreacion(CreateView):
-    model = Proyectos_Ley
-    success_url = "/AppCoder/proyecto/list"
+class IntegrantesCreacion(CreateView):
+    model = Integrantes_proyect
+    success_url = "/AppCoder/integrantes/list.html"
     fields = ['nombre', 'tematica']
 
-class CursoUpdate(UpdateView):
-    model = Proyectos_Ley
-    success_url = '/AppCoder/proyecto/list'
-    fields = ['nombre', 'tematica']
+class IntegrantesUpdate(UpdateView):
+    model = Integrantes_proyect
+    success_url = '/AppCoder/integrantes/list.html'
+    fields = ['nombre', 'apellido', 'email']
 
-class ProyectoDelete(DeleteView):
-    model = Proyectos_Ley
-    success_url = '/AppCoder/proyecto/list'
+class IntegrantesDelete(DeleteView):
+    model = Integrantes_proyect
+    success_url = '/AppCoder/integrantes/list'
+
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, logout, authenticate
+
+def login_request(request):
+
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data = request.POST)
+
+        if form.is_valid():
+            usuario = form.cleaned_data.get('username')
+            contra = form.cleaned_data.get('password')
+   
+            user = authenticate(username=usuario, password=contra)
+
+            if user is not None:
+                login(request, user)
+
+                return render(request, "AppCoder/inicio.html", {'mensaje':f"Bienvenido {usuario}"})
+            else:
+
+                    return render(request, "AppCoder/inicio.html", {"mensaje":"Error, datos incorrectos"})
+        
+        else:
+
+                return render (request, "AppCoder/inicio.html", {"mensaje":"Error, formulario erroneo"})
+    
+    form = AuthenticationForm()
+
+    return render(request, "AppCoder/login.html", {'form':form})
+     

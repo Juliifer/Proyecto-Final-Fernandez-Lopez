@@ -4,9 +4,10 @@
 {% block title %} Formulario {% endblock title %}
 
 {% block main %}
-   <p>Nombre del Proyecto: <i>{{ proyecto.nombre }}</i></p>
-   <p>Tematica: <i>{{ proyecto.tematica }}</i></p>
-   <p>
+   <p>Nombre: <i>{{ integrantes.nombre }}</i></p>
+   <p>Apellido: <i>{{ integrantes.apellido }}</i></p>
+   <p>Email: <i>{{ integrantes.email }}</i>
+    <p>
         <a href="{% url 'List' %}">Regresar</a>
 
     </p>
