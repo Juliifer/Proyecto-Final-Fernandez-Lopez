@@ -1,12 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from appcoder.models import Proyectos_Ley, Integrantes_proyect, Camara
 from appcoder.forms import cursoFormulario, BuscaCursoForm
+from django.contrib.auth.decorators import login_required
+
+
 def inicio(request):
     return render(request, 'AppCoder/inicio.html')
+
 
 def proyectos_Ley(request):
     return render(request, 'AppCoder/Proyectos_Ley.html')
 
+@login_required
 def integrantes_proyect(request):
     return render(request, 'AppCoder/Integrantes_proyect.html')
 
@@ -98,6 +103,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class IntegrantesList(ListView):
     model = Integrantes_proyect
@@ -107,7 +113,7 @@ class IntegrantesDetalle(DetailView):
     model = Integrantes_proyect
     template_name= 'AppCoder/integrantes_detalle.html'
 
-class IntegrantesCreacion(CreateView):
+class IntegrantesCreacion(CreateView, LoginRequiredMixin):
     model = Integrantes_proyect
     success_url = "/AppCoder/integrantes/list.html"
     fields = ['nombre', 'tematica']
@@ -121,13 +127,16 @@ class IntegrantesDelete(DeleteView):
     model = Integrantes_proyect
     success_url = '/AppCoder/integrantes/list'
 
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
+from appcoder.forms import UserRegisterForm
+
 
 def login_request(request):
 
     if request.method == 'POST':
         form = AuthenticationForm(request, data = request.POST)
+        print(form)
 
         if form.is_valid():
             usuario = form.cleaned_data.get('username')
@@ -141,7 +150,7 @@ def login_request(request):
                 return render(request, "AppCoder/inicio.html", {'mensaje':f"Bienvenido {usuario}"})
             else:
 
-                    return render(request, "AppCoder/inicio.html", {"mensaje":"Error, datos incorrectos"})
+                return render(request, "AppCoder/inicio.html", {"mensaje":"Error, datos incorrectos"})
         
         else:
 
@@ -151,3 +160,26 @@ def login_request(request):
 
     return render(request, "AppCoder/login.html", {'form':form})
      
+
+def register(request):
+
+    if request.method == 'POST':
+
+           # form = UserCreationForm(request.POST)
+            form = UserRegisterForm(request.POST) 
+        
+            if form.is_valid():
+
+                username = form.cleaned_data['username']
+                form.save()
+                return render(request, "AppCoder/inicio.html", {"mensaje":f"{username}Usuario Creado :)"})
+        
+    else:
+        #form = UserCreationForm()
+       form = UserRegisterForm() 
+            
+    return render(request, "AppCoder/register.html", {"form":form})
+    
+
+
+

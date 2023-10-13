@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang-'en'>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integrantes de los proyectos</title>
-</head>
-<body style="color: green;"> Hola {{nombre}}, estamos haciendo uso de variables por contexto
+{% extends 'AppCoder/base.html' %}
+{% load static %}
+
+{% block title %} Integrantes Proyectos {% endblock title %}
+
+{% block main %}
+
+<body style="color: green;">
+    
+    Hola {{nombre}}, aqui vas a poder ver los integrantes de los proyectos que te interesan!
 
 </body> 
-</html>
+  
+      
+
+{% endblock main %}

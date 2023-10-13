@@ -1,18 +1,18 @@
 {% extends 'AppCoder/base.html' %}
 {% load static %}
 
-{% block title %} Iniciar Sesion {% endblock title %}
+{% block title %} Formulario {% endblock title %}
 
 {% block main %}
 
-    <h2>{{ mensaje }}</h2>
+
     <form action="" method="POST">
 
         {% csrf_token %}
 
-        {{form.as_p}}
+        {{form.as_table}}
 
-        <button type="submit"> Iniciar Sesión</button>
+        <button type="submit"> Registrate!!!</button>
 
 
     </form>
