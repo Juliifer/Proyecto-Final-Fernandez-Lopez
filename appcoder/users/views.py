@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.decorators import login, authenticate
-from users.forms import UserRegisterForm
+from django.contrib.auth import login, authenticate
+from users.forms import UserEditForm 
+from django.contrib.auth.decorators import login_required
 
 
 def login_request(request):
@@ -53,3 +54,29 @@ def register(request):
     return render(request, "AppCoder/register.html", {"form":form})
     
 
+@login_required
+def edit(request):
+     usuario = request.user
+
+     if request.method == 'POST':
+          
+          miFormulario = UserEditForm(request.POST)
+
+          if miFormulario.is_valid():
+               
+               informacion = miFormulario.cleaned_data
+
+               usuario.email = informacion['email']
+               usuario.password1 = informacion['password1']
+               usuario.password2 = informacion['password2']
+               usuario.last_name = informacion['last_name']
+               usuario.first_name = informacion['first_name']
+
+               usuario.save()
+
+               return render(request, 'AppCoder/inicio.html')
+     else:
+
+        miFormulario = UserEditForm(initial={'email':usuario.email})
+
+     return render(request, "users/edit.html"), {'miFormulario':miFormulario, 'usuario':usuario}
