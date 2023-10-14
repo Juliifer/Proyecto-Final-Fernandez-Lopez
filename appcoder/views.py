@@ -116,7 +116,7 @@ class IntegrantesDetalle(DetailView):
 class IntegrantesCreacion(CreateView, LoginRequiredMixin):
     model = Integrantes_proyect
     success_url = "/AppCoder/integrantes/list.html"
-    fields = ['nombre', 'tematica']
+    fields = ['nombre', 'apellido', "email"]
 
 class IntegrantesUpdate(UpdateView):
     model = Integrantes_proyect
