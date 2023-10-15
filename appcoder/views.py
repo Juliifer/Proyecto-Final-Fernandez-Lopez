@@ -130,6 +130,7 @@ class IntegrantesDelete(DeleteView):
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from appcoder.forms import UserRegisterForm
+from appcoder.forms import UserEditForm 
 
 
 def login_request(request):
@@ -180,6 +181,41 @@ def register(request):
             
     return render(request, "AppCoder/register.html", {"form":form})
     
+@login_required
+def edit(request):
+     usuario = request.user
 
+     if request.method == 'POST':
+          
+          miFormulario = UserEditForm(request.POST)
+
+          if miFormulario.is_valid():
+               
+               informacion = miFormulario.cleaned_data
+
+               if informacion['password'] != informacion['password2']:
+                   datos= {
+                       'first_name':usuario.first_name,
+                       'email': usuario.email
+                   }
+                   miFormulario = UserEditForm(initial=datos)
+                
+               else:
+                   usuario.email = informacion['email']
+                  #usuario.password1 = informacion['password1']
+                  #usuario.password2 = informacion['password2']
+
+                   usuario.set_password(informacion['password'])
+                  #usuario.last_name = informacion['last_name']
+                  #usuario.first_name = informacion['first_name']
+
+                   usuario.save()
+
+                   return render(request, 'AppCoder/inicio.html')
+     else:
+
+        miFormulario = UserEditForm(initial={'email':usuario.email})
+
+     return render(request, "AppCoder/edit.html", {'miFormulario':miFormulario, 'usuario':usuario})
 
 
