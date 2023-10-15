@@ -220,6 +220,16 @@ def edit(request):
 
                    usuario.save()
 
+                   try:
+                       avatar = Avatar.objects.get(user=usuario)
+                   except Avatar.DoesNotExist:
+                       avatar = Avatar(user=usuario, imagen=informacion['imagen'])
+                       avatar.save()
+
+                   else:
+                       avatar.imagen = informacion['avatar']
+                       avatar.save
+                   
                    return render(request, 'AppCoder/inicio.html')
      else:
 
