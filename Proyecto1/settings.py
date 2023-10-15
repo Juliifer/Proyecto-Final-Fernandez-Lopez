@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'appcoder',
+    'registro',  # Asegúrate de que 'registro' esté en la lista
 ]
 
 MIDDLEWARE = [

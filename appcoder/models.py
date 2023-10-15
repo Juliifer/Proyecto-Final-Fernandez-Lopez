@@ -31,13 +31,10 @@ class Fecha_Inicio(models.Model):
 
     def __str__(self):
         return f"{self.fecha}"
+    
+from django.conf import settings
 
 
-# clase 24
 class Avatar(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    imagen = models.ImageField(upload_to='avatares', null=True, blank=True)
-
-    def __str__(self):
-        return f"{self.imagen}"
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+   
