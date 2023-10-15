@@ -13,14 +13,14 @@ class Proyectos_Ley(models.Model):
 class Integrantes_proyect(models.Model):
     nombre= models.CharField(max_length=40)
     apellido=models.CharField(max_length=20)
-    email=models.EmailField(max_length=40)
+    email=models.EmailField(max_length=40, blank= True, null=True)
 
     def __str__(self):
         return f"{self.nombre} - {self.apellido} - {self.email}"
 
 class Camara(models.Model):
     nombre=models.CharField(max_length=40)
-    integrantes=models.IntegerField(max_length=20)
+    integrantes=models.CharField(max_length=20)
     profesion=models.CharField(max_length=30)
 
     def __str__(self):
@@ -32,11 +32,12 @@ class Fecha_Inicio(models.Model):
     def __str__(self):
         return f"{self.fecha}"
 
+
 # clase 24
-class Avatar(models.Model):
+class Imagen(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    imagen = models.ImageField(upload_to='avatares', null=True, blank=True)
+    imagen = models.ImageField(upload_to='imagenes', null=True, blank=True)
 
     def __str__(self):
-        return f"{self.user} - {self.imagen}"
+        return f"{self.imagen}"
