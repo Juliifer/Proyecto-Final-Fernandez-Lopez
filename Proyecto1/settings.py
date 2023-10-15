@@ -133,3 +133,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'registro.CustomUser'
+LOGIN_URL = 'accounts/login/'
+LOGIN_REDIRECT_URL = 'perfil'  # Redirige a la página de perfil después de iniciar sesión
