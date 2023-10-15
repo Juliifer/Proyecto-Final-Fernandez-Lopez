@@ -232,8 +232,12 @@ def edit(request):
                    
                    return render(request, 'AppCoder/inicio.html')
      else:
+        datos = {
+            'first_name': usuario.first_name,
+            'email': usuario.email
+        }
 
-        miFormulario = UserEditForm(initial={'email':usuario.email})
+        miFormulario = UserEditForm(initial=datos)
 
      return render(request, "AppCoder/edit.html", {'miFormulario':miFormulario, 'usuario':usuario})
 
