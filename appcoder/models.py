@@ -34,10 +34,10 @@ class Fecha_Inicio(models.Model):
 
 
 # clase 24
-class Imagen(models.Model):
+class Avatar(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    imagen = models.ImageField(upload_to='imagenes', null=True, blank=True)
+    imagen = models.ImageField(upload_to='avatares', null=True, blank=True)
 
     def __str__(self):
         return f"{self.imagen}"

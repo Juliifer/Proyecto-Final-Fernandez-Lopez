@@ -2,18 +2,18 @@ from django.shortcuts import render, redirect
 from appcoder.models import Proyectos_Ley, Integrantes_proyect, Camara
 from appcoder.forms import cursoFormulario, BuscaCursoForm
 from django.contrib.auth.decorators import login_required
-from appcoder.models import Imagen
+from appcoder.models import Avatar
 
 
 def inicio(request):
-    imagenes = Imagen.objects.filter(user=request.user.id)
+    avatares = Avatar.objects.filter(user=request.user.id)
     
-    if imagenes:
-        imagen = imagenes[0]
+    if avatares:
+        avatar = avatares[0]
     else:
-        imagen = None  # Otra acción que desees tomar si no hay imágenes
+        avatar = None  # Otra acción que desees tomar si no hay imágenes
     
-    return render(request, 'AppCoder/inicio.html', {"url": imagen })
+    return render(request, 'AppCoder/inicio.html', {"url": avatar })
 
 
 
