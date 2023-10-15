@@ -7,7 +7,7 @@
 {% block main %}
 <h2>{{ mensaje }}</h2>
 <!-- Features section-->
-<img style='height: 40px;width: 40px;'src="{{url}}" alt="">
+<img style='height: 40px;width: 40px;'src="{{request.user.avatar.imagen.url}}" alt="">
 
 <section class="py-5" id="features">
     <div class="container px-5 my-5">
