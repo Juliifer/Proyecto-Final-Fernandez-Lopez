@@ -37,8 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'appcoder',
-    'registro',  # Asegúrate de que 'registro' esté en la lista
+    'appcoder'
 ]
 
 MIDDLEWARE = [
@@ -135,6 +134,4 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'registro.CustomUser'
-LOGIN_URL = 'accounts/login/'
-LOGIN_REDIRECT_URL = 'perfil'  # Redirige a la página de perfil después de iniciar sesión
+
