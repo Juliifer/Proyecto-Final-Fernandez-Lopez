@@ -188,8 +188,8 @@ def register(request):
         #form = UserCreationForm()
        form = UserRegisterForm() 
             
-    return render(request, "AppCoder/register.html", {"form":form})
-    
+    return render(request, "AppCoder/signup.html", {"form":form})
+
 @login_required
 def edit(request):
      usuario = request.user
@@ -211,12 +211,12 @@ def edit(request):
                 
                else:
                    usuario.email = informacion['email']
-                  #usuario.password1 = informacion['password1']
-                  #usuario.password2 = informacion['password2']
+                   usuario.password1 = informacion['password1']
+                   usuario.password2 = informacion['password2']
 
                    usuario.set_password(informacion['password'])
-                  #usuario.last_name = informacion['last_name']
-                  #usuario.first_name = informacion['first_name']
+                   usuario.last_name = informacion['last_name']
+                   usuario.first_name = informacion['first_name']
 
                    usuario.save()
 
