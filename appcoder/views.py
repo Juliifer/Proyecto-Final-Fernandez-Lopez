@@ -3,6 +3,7 @@ from appcoder.models import Proyectos_Ley, Integrantes_proyect, Camara
 from appcoder.forms import cursoFormulario, BuscaCursoForm
 from django.contrib.auth.decorators import login_required
 from appcoder.models import Avatar
+from django.contrib.auth import update_session_auth_hash
 
 
 def inicio(request):
