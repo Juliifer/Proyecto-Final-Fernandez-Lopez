@@ -192,54 +192,54 @@ def register(request):
 
 @login_required
 def edit(request):
-     usuario = request.user
+    usuario = request.user
 
-     if request.method == 'POST':
-          
-          miFormulario = UserEditForm(request.POST)
+    if request.method == 'POST':
+        miFormulario = UserEditForm(request.POST, request.FILES)
+        if miFormulario.is_valid():
+            informacion = miFormulario.cleaned_data
 
-          if miFormulario.is_valid():
-               
-               informacion = miFormulario.cleaned_data
+            # Verifica si la contraseña está siendo modificada
+            if informacion.get('password1'):
+                if informacion['password1'] != informacion['password2']:
+                    datos = {
+                        'first_name': usuario.first_name,
+                        'email': usuario.email
+                    }
+                    miFormulario = UserEditForm(initial=datos)
+                else:
+                    # Cambia la contraseña del usuario y guarda
+                    usuario.set_password(informacion['password1'])
+                    usuario.save()
 
-               if informacion['password'] != informacion['password2']:
-                   datos= {
-                       'first_name':usuario.first_name,
-                       'email': usuario.email
-                   }
-                   miFormulario = UserEditForm(initial=datos)
-                
-               else:
-                   usuario.email = informacion['email']
-                   usuario.password = informacion['password']
-                   usuario.password2 = informacion['password2']
+                    # Actualiza la sesión del usuario sin cerrarla
+                    update_session_auth_hash(request, usuario)
 
-                   usuario.set_password(informacion['password'])
-                   usuario.last_name = informacion['last_name']
-                   usuario.first_name = informacion['first_name']
+            # Actualiza otros campos del usuario
+            usuario.email = informacion['email']
+            usuario.last_name = informacion['last_name']
+            usuario.first_name = informacion['first_name']
+            usuario.save()
 
-                   usuario.save()
+            # Trata con la imagen del avatar (si aplica)
+            try:
+                avatar = Avatar.objects.get(user=usuario)
+                # Actualiza la imagen si se proporciona en el formulario
+                avatar.imagen = informacion.get('imagen', avatar.imagen)
+                avatar.save()
+            except Avatar.DoesNotExist:
+                avatar = Avatar(user=usuario, imagen=informacion.get('imagen'))
+                avatar.save()
 
-                   try:
-                       avatar = Avatar.objects.get(user=usuario)
-                   except Avatar.DoesNotExist:
-                       avatar = Avatar(user=usuario, imagen=informacion['imagen'])
-                       avatar.save()
-
-                   else:
-                       avatar.imagen = informacion['avatar']
-                       avatar.save
-                   
-                   return render(request, 'AppCoder/inicio.html')
-     else:
+            return render(request, 'AppCoder/inicio.html')
+    else:
         datos = {
             'first_name': usuario.first_name,
             'email': usuario.email
         }
-
         miFormulario = UserEditForm(initial=datos)
 
-     return render(request, "AppCoder/edit.html", {'miFormulario':miFormulario, 'usuario':usuario})
+    return render(request, "AppCoder/edit.html", {'miFormulario': miFormulario, 'usuario': usuario})
 
 
 def about(request):

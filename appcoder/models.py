@@ -36,7 +36,10 @@ from django.conf import settings
 
 
 class Avatar(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    imagen = models.ImageField(
+        upload_to='avatars/', default='avatars/default.png')
    
 
 class Blog(models.Model):

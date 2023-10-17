@@ -7,17 +7,18 @@
 {% block main %}
 
    
-    <form action="" method ='POST'>
-        {% csrf_token %}
+<form action="" method ='POST' enctype="multipart/form-data">
+    {% csrf_token %}
 
-        <table>
-            
-            {{ miFormulario.as_table }}
-            
-        </table>
-
-        <input type="submit" value="Actualizar">
+    <table>
         
-    </form>
+        {{ miFormulario.as_table }}
+        
+    </table>
+
+    <input type="submit" value="Actualizar">
+    
+</form>
+
       
 {% endblock main %}
