@@ -23,9 +23,10 @@ urlpatterns = [
     path('nuevo/<int:pk>/', login_required(views.IntegrantesCreacion.as_view()), name='New'),
     path('editar/<int:pk>/', login_required(views.IntegrantesUpdate.as_view()), name='Edit'),
     path('borrar/<int:pk>/', login_required(views.IntegrantesDelete.as_view()), name='Delete'),
-    path('login', views.login_request, name='Login'),
+    path('login/', views.login_request, name='Login'),
     path('signup', views.register, name='Signup'),
     path('logout/', LogoutView.as_view(template_name='AppCoder/logout.html'), name='Logout'),
-    path('edit/', views.edit , name= 'Edit')
+    path('edit/', views.edit , name= 'Edit'),
+    path('about/', views.about, name='about')
     ]
     #path('cambiar_pass/', views.CambiarPasswordView.as_view(), name='CambiarPass'),

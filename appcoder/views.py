@@ -211,7 +211,7 @@ def edit(request):
                 
                else:
                    usuario.email = informacion['email']
-                   usuario.password1 = informacion['password1']
+                   usuario.password = informacion['password']
                    usuario.password2 = informacion['password2']
 
                    usuario.set_password(informacion['password'])
@@ -242,3 +242,6 @@ def edit(request):
      return render(request, "AppCoder/edit.html", {'miFormulario':miFormulario, 'usuario':usuario})
 
 
+
+def about(request):
+    return render(request, 'AppCoder/about.html')
