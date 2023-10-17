@@ -242,6 +242,18 @@ def edit(request):
      return render(request, "AppCoder/edit.html", {'miFormulario':miFormulario, 'usuario':usuario})
 
 
-
 def about(request):
     return render(request, 'AppCoder/about.html')
+
+
+from .models import Blog
+def blog_list(request):
+    blogs = Blog.objects.all()
+    return render(request, 'AppCoder/blog.html', {'blogs': blogs})
+
+from django.shortcuts import render, get_object_or_404
+
+
+def page_detail(request, page_id):
+    page = get_object_or_404(Blog, pk=page_id)
+    return render(request, 'AppCoder/page_detail.html', {'page': page})

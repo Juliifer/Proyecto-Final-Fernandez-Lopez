@@ -27,6 +27,8 @@ urlpatterns = [
     path('signup', views.register, name='Signup'),
     path('logout/', LogoutView.as_view(template_name='AppCoder/logout.html'), name='Logout'),
     path('edit/', views.edit , name= 'Edit'),
-    path('about/', views.about, name='about')
+    path('about/', views.about, name='about'),
+    path('blog/', views.blog_list, name='blog'),
+    path('pages/<int:page_id>/', views.page_detail, name='page_detail')
     ]
     #path('cambiar_pass/', views.CambiarPasswordView.as_view(), name='CambiarPass'),

@@ -1,0 +1,32 @@
+{% extends 'AppCoder/base.html' %}
+{% load static %}
+
+{% block title %} Blog List {% endblock title %}
+
+{% block main %}
+</head>
+<body>
+    <h1>Lista de Blogs</h1>
+    <ul>
+        {% for blog in blogs %}
+            <li>
+                <h2>{{ blog.title }}</h2>
+                <p>{{ blog.pub_date }}</p>
+                <p>{{ blog.content | safe }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <ul>
+        {% for page in pages %}
+            <li>
+                <h2>{{ page.title }}</h2>
+                <p>{{ page.content }}</p>
+                <a href="{% url 'page_detail' page.id %}">Leer más</a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>
+
+{% endblock %}
