@@ -53,6 +53,9 @@
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown">
                                 Cuenta
                             </button>
+                            {% if request.user.avatar%}
+                            <img src="{{ request.user.avatar.imagen.url}}" width="30" height="30" class="avatar-img">
+                            {% endif %}
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a class='dropdown-item' href="{% url 'Login' %}">Iniciar Sesion</a></li>
                                 <li><a class='dropdown-item' href="{% url 'Signup' %}">Crear cuenta</a></li>
