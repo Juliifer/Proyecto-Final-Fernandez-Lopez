@@ -28,9 +28,6 @@ def integrantes_proyect(request):
 def camara(request):
     return render(request, 'AppCoder/camara.html')
 
-def Fecha_Inicio(request):
-    return render(request, 'AppCoder/fecha_inicio.html')
-
 def CursoFormulario(request):
     if request.method == 'POST':
         
@@ -248,12 +245,26 @@ def about(request):
 
 
 from .models import Blog
+from .forms import BlogForm 
+
 def blog_list(request):
     blogs = Blog.objects.all()
-    return render(request, 'AppCoder/blog.html', {'blogs': blogs})
+    return render(request, 'AppCoder/blog_list.html', {'blogs': blogs})
+
+def create_blog(request):
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('blog_list')
+    else:
+        form = BlogForm()
+    return render(request, 'AppCoder/create_blog.html', {'form': form})
+
+
+
 
 from django.shortcuts import render, get_object_or_404
-
 
 def page_detail(request, page_id):
     page = get_object_or_404(Blog, pk=page_id)

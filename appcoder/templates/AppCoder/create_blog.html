@@ -1,0 +1,15 @@
+{% extends 'AppCoder/base.html' %}
+{% load static %}
+
+{% block title %} Creacion de Blog {% endblock title %}
+
+{% block main %}
+
+<h2>Create a Blog</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Blog</button>
+</form>
+
+{% endblock %}

@@ -9,11 +9,15 @@
     <h1>Lista de Blogs</h1>
     <ul>
         {% for blog in blogs %}
-            <li>
-                <h2>{{ blog.title }}</h2>
-                <p>{{ blog.pub_date }}</p>
-                <p>{{ blog.content | safe }}</p>
-            </li>
+        <h1>{{ blog.title }}</h1>
+        <p>Subtítulo: {{ blog.subtitle }}</p>
+        <p>Autor: {{ blog.author }}</p>
+        <p>Fecha de Publicación: {{ blog.pub_date }}</p>
+        
+        <!-- Código para mostrar la imagen -->
+        <img src="{{ blog.image.url }}" alt="Imagen del Blog">
+        
+        <div>{{ blog.body }}</div>
         {% endfor %}
     </ul>
     <ul>
@@ -30,3 +34,4 @@
 </html>
 
 {% endblock %}
+

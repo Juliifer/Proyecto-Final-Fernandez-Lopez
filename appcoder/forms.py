@@ -37,3 +37,12 @@ class UserEditForm(UserCreationForm):
         fields = ['email', 'password1', 'password2', 'last_name', 'first_name']
 
         help_texts = {k: "" for k in fields }
+
+
+from .models import Blog
+
+class BlogForm(forms.ModelForm):
+    class Meta:
+        model = Blog
+        fields = ['title', 'subtitle', 'body', 'author', 'image']
+

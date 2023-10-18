@@ -5,5 +5,4 @@ from .models import *
 admin.site.register(Proyectos_Ley)
 admin.site.register(Integrantes_proyect)
 admin.site.register(Camara)
-admin.site.register(Fecha_Inicio)
 admin.site.register(Avatar)

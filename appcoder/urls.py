@@ -8,7 +8,6 @@ urlpatterns = [
     path('proyectos_ley/', views.proyectos_Ley, name= 'Proyectos_Ley'),
     path('integrantes_proyecto/', login_required(views.integrantes_proyect), name= 'Integrantes_proyect' ),
     path('camara/', views.camara, name= 'Camara'),
-    path('fecha_inicio/', views.Fecha_Inicio, name= 'Fecha_Inicio'),
     path('cursoFormulario', views.cursoFormulario, name='CursoFormulario'),
     path('integrantesFormulario', views.integrantesFormulario, name='IntegrantesFormulario'),
     path('camaraFormulario', views.camaraFormulario, name='CamaraFormulario'),
@@ -28,7 +27,8 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(template_name='AppCoder/logout.html'), name='Logout'),
     path('edit/', views.edit , name= 'Edit'),
     path('about/', views.about, name='about'),
-    path('blog/', views.blog_list, name='blog'),
-    path('pages/<int:page_id>/', views.page_detail, name='page_detail')
+    path('list/', views.blog_list, name='blog_list'),
+    path('pages/<int:page_id>/', views.page_detail, name='page_detail'),
+    path('create/', views.create_blog, name='create_blog')
     ]
     #path('cambiar_pass/', views.CambiarPasswordView.as_view(), name='CambiarPass'),

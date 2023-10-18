@@ -26,11 +26,6 @@ class Camara(models.Model):
     def __str__(self):
         return f"{self.nombre} - {self.integrantes} - {self.profesion}"
 
-class Fecha_Inicio(models.Model):
-    fecha= models.DateField(max_length=20)
-
-    def __str__(self):
-        return f"{self.fecha}"
     
 from django.conf import settings
 
@@ -43,9 +38,12 @@ class Avatar(models.Model):
    
 
 class Blog(models.Model):
-    title = models.CharField(max_length=100)
-    content = models.TextField()
-    pub_date = models.DateTimeField(auto_now_add=True)
+    title = models.CharField(max_length=200)
+    subtitle = models.CharField(max_length=200)
+    body = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)  
+    pub_date = models.DateTimeField('date published', auto_now_add=True)
+    image = models.ImageField(upload_to='blog_images/')  # Campo para la imagen, se almacenará en la carpeta 'blog_images/'
 
     def __str__(self):
         return self.title
