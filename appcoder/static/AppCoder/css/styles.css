@@ -10846,3 +10846,10 @@ html {
   background-repeat: no-repeat;
   min-height: 15rem;
 }
+
+.imagen-pequena {
+  max-width: 100px; /* Ajusta este valor según tus necesidades */
+  height: auto;
+}
+
+

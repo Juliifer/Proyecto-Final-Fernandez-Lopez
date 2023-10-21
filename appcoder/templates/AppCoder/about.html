@@ -1,16 +1,38 @@
+<!DOCTYPE html>
+<html lang-'en'>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre mi</title>
+</head>
+<body style="background-color:  lightseagreen;">
+
+</body> 
+</html>
+
 {% extends 'AppCoder/base.html' %}
 {% load static %}
 
-{% block title %} Acerca de mi {% endblock title %}
-
-{% block main %}
-</head>
-<body>
+{% block section1 %}
+<!-- Features section-->
+<section class="py-5" id="features">
     <h1>Acerca de la creadora</h1>
-    <p>Somos los creadores de este sitio web y estamos emocionados de compartir nuestro proyecto contigo.</p>
-    <p>Descripción del proyecto: Se trata de un proyecto que deja lugar a las personas a que puedan armar sus propios proyectos de ley que creen necesarios para la ciudadania Argentina.</p>
-    <p>El objetivo principal es poder investigar luego las propuestas armadas por cada persona y llegar a una conclusion de que es lo que busca la gente para mejorar en el pais o que cosas les gustarian que se llevaran a cabo.</p>
-</body>
-</html>
+    <div class="container px-5 my-5">
+        <div class="row gx-5">
+            <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">Proyectos de Ley</h2></div>
+            <div class="col-lg-8">
+                <div class="row gx-5 row-cols-1 row-cols-md-2">
+                    <div class="col mb-5 h-100">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                        <h2 class="h5">Soy Julieta Fernandez</h2>
+                        <p class="mb-0">Mi nombre es Julieta Fernandez, soy politóloga de la Universidad de Buenos Aires(UBA), recibida en junio del 2023. Actualmente trabajo para una ONG sobre los derechos de las infancias llamada Aldeas Infantiles SOS, la cual se dedica a brindar derechos básicos a niños y familias en situaciones vulnerables. Como politóloga me interesan mucho los debates políticos y que exista un intercambio entre personas para que este sea mas enriquecedor, por eso me parecio adecuado e interesante realizar este proyecto final en base a esto.</p>
+                        <p class="mb-0">Descripción del proyecto: Se trata de un proyecto que deja lugar a las personas a que puedan armar sus propios proyectos de ley que creen necesarios para la ciudadania Argentina.</p>
+                        <p class="mb-0">El objetivo principal es poder investigar luego las propuestas armadas por cada persona y llegar a una conclusion de que es lo que busca la gente para mejorar en el pais o que cosas les gustarian que se llevaran a cabo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

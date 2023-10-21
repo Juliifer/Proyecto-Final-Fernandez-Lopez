@@ -284,7 +284,7 @@ def view_profile(request):
     username = user.username
     email = user.email
     
-    return render(request, 'profile.html', {'user': user, 'username': username, 'email': email})
+    return render(request, 'AppCoder/profile.html', {'user': user, 'username': username, 'email': email})
 
 @login_required
 def delete_profile(request):

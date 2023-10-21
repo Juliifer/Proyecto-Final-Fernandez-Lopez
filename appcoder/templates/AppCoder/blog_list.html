@@ -13,7 +13,9 @@
             <p>Fecha de Publicación: {{ blog.pub_date }}</p>
             
             <!-- Código para mostrar la imagen -->
-            <img src="{{ blog.image.url }}" alt="Imagen del Blog">
+
+            <img src="{{ blog.image.url }}" alt="Imagen del Blog" class="imagen-pequena">
+
             
             <div>{{ blog.body }}</div>
         </li>
