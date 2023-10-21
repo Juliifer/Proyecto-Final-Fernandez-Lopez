@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Mi Perfil</h1>
+  
+  <p>Nombre de usuario: {{ user.username }}</p>
+  <p>Nombre: {{ user.first_name }} {{ user.last_name }}</p>
+  <p>Correo electrónico: {{ user.email }}</p>
+  
+  <!-- Puedes agregar más campos aquí si lo deseas -->
+  
+  <a href="{% url 'delete_profile' %}">Eliminar mi perfil</a>
+  
+  <!-- Añade botones o enlaces para editar y eliminar el perfil -->
+
+</div>
+{% endblock %}

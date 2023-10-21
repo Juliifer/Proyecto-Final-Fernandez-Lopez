@@ -1,37 +1,32 @@
 {% extends 'AppCoder/base.html' %}
-{% load static %}
-
-{% block title %} Blog List {% endblock title %}
+{% block title %} Lista de Blogs {% endblock title %}
 
 {% block main %}
-</head>
-<body>
-    <h1>Lista de Blogs</h1>
-    <ul>
+    
+<ul>
         {% for blog in blogs %}
-        <h1>{{ blog.title }}</h1>
-        <p>Subtítulo: {{ blog.subtitle }}</p>
-        <p>Autor: {{ blog.author }}</p>
-        <p>Fecha de Publicación: {{ blog.pub_date }}</p>
-        
-        <!-- Código para mostrar la imagen -->
-        <img src="{{ blog.image.url }}" alt="Imagen del Blog">
-        
-        <div>{{ blog.body }}</div>
+        <li>
+            <h1>{{ blog.title }}</h1> <!-- Agrega un ancla con un identificador único antes de la lista de blogs -->
+            <a id="blogs"></a>
+            <p>Subtítulo: {{ blog.subtitle }}</p>
+            <p>Autor: {{ blog.author }}</p>
+            <p>Fecha de Publicación: {{ blog.pub_date }}</p>
+            
+            <!-- Código para mostrar la imagen -->
+            <img src="{{ blog.image.url }}" alt="Imagen del Blog">
+            
+            <div>{{ blog.body }}</div>
+        </li>
         {% endfor %}
     </ul>
+
     <ul>
         {% for page in pages %}
-            <li>
-                <h2>{{ page.title }}</h2>
-                <p>{{ page.content }}</p>
-                <a href="{% url 'page_detail' page.id %}">Leer más</a>
-            </li>
+        <li>
+            <h2>{{ page.title }}</h2>
+            <p>{{ page.content }}</p>
+            <a href="{% url 'page_detail' page.id %}">Leer más</a>
+        </li>
         {% endfor %}
     </ul>
-    
-</body>
-</html>
-
 {% endblock %}
-

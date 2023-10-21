@@ -35,6 +35,15 @@
                             <li class="nav-item"><a class="nav-link" href="{% url 'Integrantes_proyect' %}">Integrantes_proyect</a>
                             <li class="nav-item"><a class="nav-link" href="{% url 'Camara' %}">Camara</a>
                             <li class="nav-item"><a class="nav-link" href="{% url 'create_blog'%}">Crear Blog</a>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'blog_list' %}">Ver Blogs</a>
+
+                                  
+                                
+
+                                </li>
+                                
+
+
 
                         
                             <li class="nav-item dropdown">
@@ -63,6 +72,9 @@
                                 <li><a class='dropdown-item' href="{% url 'Login' %}">Iniciar Sesion</a></li>
                                 <li><a class='dropdown-item' href="{% url 'Signup' %}">Crear cuenta</a></li>
                                 <li><a class="dropdown-item" href="{% url 'Edit' %}">Editar </a></li>
+                                <li><a class="dropdown-item" href="{% url 'view_profile' %}">Ver Perfil </a></li>
+                                <li><a class="dropdown-item" href="{% url 'Logout' %}"> Cerrar Sesion </a></li>
+                                
                             </ul>
                         </div>
                         {% endif %}                   
@@ -79,13 +91,15 @@
                             <h1 class="display-5 fw-bolder text-white mb-2">Bienvenido/a a la creación de tus Proyectos de Ley!</h1>
                                 <p class="lead fw-normal text-white-50 mb-4">En este blog podras crear y describir los proyectos de ley que te gustarían que existieran en Argentina, la idea es que puedas explayarte y generes los proyectos que creés que son mas adecuados para el país.</p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Empecemos!</a>
-                                    <a class="btn btn-outline-light btn-lg px-4" href="#!">¿Qué es un proyecto de ley?</a>
+
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"> <img class="img-fluid rounded-3 my-5" src="{% static 'AppCoder/assets/fotocongreso.jpg' %}" alt="..."/></div>
-                    </div>
+                        <div>
+                            <img style="display: block; margin: 0 auto;" class="img-fluid rounded-3 my-5" src="{% static 'AppCoder/assets/fotocongreso.jpg' %}" alt="...">
+
+                        </div>
+                        
                 </div>
             </header>
             

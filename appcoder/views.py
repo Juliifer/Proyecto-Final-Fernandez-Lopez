@@ -262,10 +262,38 @@ def create_blog(request):
     return render(request, 'AppCoder/create_blog.html', {'form': form})
 
 
-
-
 from django.shortcuts import render, get_object_or_404
 
 def page_detail(request, page_id):
     page = get_object_or_404(Blog, pk=page_id)
     return render(request, 'AppCoder/page_detail.html', {'page': page})
+
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+
+
+from .models import User
+from .forms import UserProfileForm
+@login_required
+def view_profile(request):
+    # Verifica si el usuario autenticado tiene un perfil asociado
+    user = request.user  # Recupera el usuario autenticado
+
+    # Puedes acceder a las propiedades del usuario, como username, email, etc.
+    username = user.username
+    email = user.email
+    
+    return render(request, 'profile.html', {'user': user, 'username': username, 'email': email})
+
+@login_required
+def delete_profile(request):
+    user = request.user
+    
+    # Puedes agregar comprobaciones adicionales si es necesario
+    
+    # Eliminar el usuario y cerrar la sesión
+    user.delete()
+    logout(request)
+    
+    return redirect('home')  # Redirige a la página de inicio u otra página de tu elección

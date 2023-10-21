@@ -5,12 +5,37 @@
 
 {% block main %}
 
-<body style="color: green;">
-    
-    Hola {{nombre}}, aqui vas a poder ver los integrantes de los proyectos que te interesan!
-
-</body> 
-  
-      
+    <body style="background-color: green; color: white; font-size: 16px;">
+          
+        </ul>
+    </body>
+    <section class="py-5" id="features">
+        <h1>Integrantes de los Proyectos</h1>
+        <div class="container px-5 my-5">
+            <div class="row gx-5">
+                <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">Personas que quisieron probar y generar sus propios proyectos</h2></div>
+                <div class="col-lg-8">
+                    <div class="row gx-5 row-cols-1 row-cols-md-2">
+                        <div class="col mb-5 h-100">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                            <h2 class="h5">Julieta Fernandez</h2>
+                            <p class="mb-0">Ella decidio generar y describir un proyecto acerca de los desaparecidos por el terrorismo de Estado. Armo el proyecto en base a la memoria, verdad y justicia, porque es importante poder recordar lo que sucedio en la historia Argentina.</p>
+                        </div>
+                        <div class="col mb-5 h-100">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
+                            <h2 class="h5">Franco Fernandez</h2>
+                            <p class="mb-0">Franco genero un proyecto sobre la Educacion, la cual es muy importante en el pais. El cree que deberia hacerse un proyecto que considere los sentimientos de los niños durante su escolaridad y poder ser empaticos con ello.</p>
+                        </div>
+                        <div class="col mb-5 mb-md-0 h-100">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                            <h2 class="h5">Alexa Lopez</h2>
+                            <p class="mb-0">Ella cree que en el ambito laboral deberian mejorarse las condiciones con respecto a la higiene y a la limpieza. Por eso su proyecto de ley busca una mejora en cuanto al ambiente laboral y que haya mas personal de limpieza en determinados lugares.</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 {% endblock main %}

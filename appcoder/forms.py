@@ -47,3 +47,11 @@ class BlogForm(forms.ModelForm):
         fields = ['title', 'subtitle', 'body', 'author', 'image']
   
 
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name','email']
+
+
+
