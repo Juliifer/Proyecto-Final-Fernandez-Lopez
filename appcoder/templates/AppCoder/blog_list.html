@@ -4,6 +4,7 @@
 {% block main %}
     
 <ul>
+    <body style="background-color:  rgb(32, 137, 178);"></body>
         {% for blog in blogs %}
         <li>
             <h1>{{ blog.title }}</h1> <!-- Agrega un ancla con un identificador único antes de la lista de blogs -->
@@ -16,11 +17,12 @@
 
             <img src="{{ blog.image.url }}" alt="Imagen del Blog" class="imagen-pequena">
 
-            
+            <li>
+                
+                <a href="{% url 'edit_blog' blog.id %}">Editar</a>
+            </li>
+            {% endfor %}
             <div>{{ blog.body }}</div>
-        </li>
-        {% endfor %}
-    </ul>
 
     <ul>
         {% for page in pages %}

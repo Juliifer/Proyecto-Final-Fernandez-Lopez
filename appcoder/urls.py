@@ -28,5 +28,6 @@ urlpatterns = [
     path('create/', views.create_blog, name='create_blog'),
     path('profile/', views.view_profile, name='view_profile'),
     path('profile/delete/', views.delete_profile, name='delete_profile'),
+    path('blog/edit/<int:blog_id>/', views.edit_blog, name='edit_blog')
     ]
     #path('cambiar_pass/', views.CambiarPasswordView.as_view(), name='CambiarPass'),

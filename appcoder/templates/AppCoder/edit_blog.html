@@ -1,0 +1,12 @@
+{% extends 'AppCoder/base.html' %}
+{% block title %} Editar Blog {% endblock title %}
+
+{% block main %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar cambios</button>
+    </form>
+    
+    <a href="{% url 'blog_list' %}">Volver a la lista de blogs</a>
+{% endblock %}

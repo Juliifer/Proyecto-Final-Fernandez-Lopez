@@ -261,6 +261,19 @@ def create_blog(request):
         form = BlogForm()
     return render(request, 'AppCoder/create_blog.html', {'form': form})
 
+def edit_blog(request, blog_id):
+    blog = Blog.objects.get(id=blog_id)
+
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES, instance=blog)
+        if form.is_valid():
+            form.save()
+            return redirect('blog_list')
+    else:
+        form = BlogForm(instance=blog)
+
+    return render(request, 'AppCoder/edit_blog.html', {'form': form})
+
 
 from django.shortcuts import render, get_object_or_404
 
