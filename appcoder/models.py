@@ -48,16 +48,6 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
     
-
-class User(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
-    description = models.TextField(blank=True)
-    website = models.URLField(blank=True)
-    image = models.ImageField(upload_to='profile_images/', blank=True)
-
-    def __str__(self):
-        return self.user.username
     
 
 class Message(models.Model):

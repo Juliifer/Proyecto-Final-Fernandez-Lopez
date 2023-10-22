@@ -316,11 +316,11 @@ from .models import Message
 from .forms import MessageForm
 
 @login_required
-def message_list(request):
+def list_message(request):
     user = request.user
     received_messages = Message.objects.filter(receiver=user)
     sent_messages = Message.objects.filter(sender=user)
-    return render(request, 'messages/message_list.html', {
+    return render(request, 'AppCoder/list_message.html', {
         'received_messages': received_messages,
         'sent_messages': sent_messages,
     })
@@ -332,8 +332,9 @@ def send_message(request):
         if form.is_valid():
             message = form.save(commit=False)
             message.sender = request.user
+            form.cleaned_data['receiver']
             message.save()
-            return redirect('message_list')
+            return redirect('send_message')
     else:
         form = MessageForm()
     return render(request, 'AppCoder/send_message.html', {'form': form})

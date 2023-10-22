@@ -56,9 +56,11 @@ class UserProfileForm(forms.ModelForm):
 from .models import Message
 
 class MessageForm(forms.ModelForm):
+    receiver =forms.ModelChoiceField(queryset=User.objects.all())
+
     class Meta:
         model = Message
-        fields = ['message']
+        fields = ['receiver','message']
 
 
 
