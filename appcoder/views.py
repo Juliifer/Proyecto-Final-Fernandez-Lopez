@@ -180,7 +180,7 @@ def register(request):
 
                 username = form.cleaned_data['username']
                 form.save()
-                return render(request, "AppCoder/inicio.html", {"mensaje":f"{username}Usuario Creado :)"})
+                return render(request, "AppCoder/inicio.html", {"mensaje":f"{username} Usuario Creado :)"})
         
     else:
         #form = UserCreationForm()
@@ -309,4 +309,31 @@ def delete_profile(request):
     user.delete()
     logout(request)
     
-    return redirect('home')  # Redirige a la página de inicio u otra página de tu elección
+    return redirect('Inicio')  # Redirige a la página de inicio u otra página de tu elección
+
+
+from .models import Message
+from .forms import MessageForm
+
+@login_required
+def message_list(request):
+    user = request.user
+    received_messages = Message.objects.filter(receiver=user)
+    sent_messages = Message.objects.filter(sender=user)
+    return render(request, 'messages/message_list.html', {
+        'received_messages': received_messages,
+        'sent_messages': sent_messages,
+    })
+
+@login_required
+def send_message(request):
+    if request.method == 'POST':
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            message = form.save(commit=False)
+            message.sender = request.user
+            message.save()
+            return redirect('message_list')
+    else:
+        form = MessageForm()
+    return render(request, 'AppCoder/send_message.html', {'form': form})

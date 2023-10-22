@@ -1,0 +1,16 @@
+<!-- send_message.html -->
+{% extends 'AppCoder/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div id="enviar">
+<h2>Enviar Mensaje</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enviar Mensaje</button>
+</form>
+<a href="{% url 'message_list' %}">Volver a la Lista de Mensajes</a>
+</div>
+{% endblock %}
