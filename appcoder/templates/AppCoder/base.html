@@ -26,17 +26,17 @@
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container px-5">
-                    <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+                    <a class="navbar-brand" href="index.html">Proyecto Final</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="{% url 'Inicio' %}">Inicio</a>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'Proyectos_Ley' %}">Proyectos_Ley</a>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'Integrantes_proyect' %}">Integrantes_proyect</a>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'Camara' %}">Camara</a>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">Sobre mi</a>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'create_blog'%}">Crear Blog</a>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'blog_list' %}">Ver Blogs</a>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Proyectos_Ley' %}#proyectos">Proyectos_Ley</a>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Integrantes_proyect' %}#integrantes">Integrantes_proyect</a>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Camara' %}#camara">Camara</a>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}#about">Sobre mi</a>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'create_blog'%}#crear">Crear Blog</a>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'blog_list' %}#lista">Ver Blogs</a>
                               
                                   
                                 
@@ -72,9 +72,9 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a class='dropdown-item' href="{% url 'Login' %}">Iniciar Sesion</a></li>
                                 <li><a class='dropdown-item' href="{% url 'Signup' %}">Crear cuenta</a></li>
-                                <li><a class="dropdown-item" href="{% url 'Edit' %}">Editar </a></li>
-                                <li><a class="dropdown-item" href="{% url 'view_profile' %}">Ver Perfil </a></li>
-                                <li><a class="dropdown-item" href="{% url 'Logout' %}"> Cerrar Sesion </a></li>
+                                <li><a class="dropdown-item" href="{% url 'Edit' %}#editar">Editar </a></li>
+                                <li><a class="dropdown-item" href="{% url 'view_profile' %}#ver">Ver Perfil </a></li>
+                                <li><a class="dropdown-item" href="{% url 'Logout' %}#cerrar"> Cerrar Sesion </a></li>
                                 
                             </ul>
                         </div>

@@ -4,12 +4,12 @@
 {% block title %} Creacion de Blog {% endblock title %}
 
 {% block main %}
-
+<div id="crear">
 <h2>Crea tu blog</h2>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Create Blog</button>
     </form>
-
+</div>
 {% endblock %}

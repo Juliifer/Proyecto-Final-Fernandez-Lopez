@@ -2,13 +2,27 @@
 {% load static %}
 
 {% block main %}
-  <h1>Mi Perfil</h1>
-  
-  <p>Nombre de usuario: {{ user.username }}</p>
-  <p>Nombre: {{ user.first_name }} {{ user.last_name }}</p>
-  <p>Correo electrónico: {{ user.email }}</p>
-  
-  <!-- Puedes agregar más campos aquí si lo deseas -->
+<body style="background-color:  lightskyblue;">
+
+</body> 
+<div id="ver">
+  <section class="py-5" id="features">
+    <h1>Mi Perfil</h1>
+    <div class="container px-5 my-5">
+        <div class="row gx-5">
+            <div class="col-lg-8">
+                <div class="row gx-5 row-cols-1 row-cols-md-2">
+                    <div class="col mb-5 h-100">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                        <h2 class="h5">Nombre de usuario: {{ user.username }}</p></h2>
+                        <h2 class="h5">Nombre: {{ user.first_name }} {{ user.last_name }}</p></h2>
+                        <h2 class ='h5'>Correo electrónico: {{ user.email }} </p></h2>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
   
   <a href="{% url 'delete_profile' %}">Eliminar mi perfil</a>
   
